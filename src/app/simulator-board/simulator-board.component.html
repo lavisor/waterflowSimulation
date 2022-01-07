@@ -1,0 +1,32 @@
+<div class="simulation"> 
+    <div class="simulator-description">Drag the obstructions and place it inside the grid</div>
+    <div class="grid-container"> 
+        <div class="grid-component grid-frame">
+            <div class="grids">
+                <div class="row water-inlet">
+                    <div class="empty-block water-inlet-block" *ngFor="let cube of inlets;let y=index" id="{{'inlet_'+y}}" [ngClass]="{'water': cube==-1?true:false }" (click)="startWater(y)">
+                        <!-- {{cube}} -->
+                    </div>
+                </div>
+                <div class="row" *ngFor="let row of grid;let x=index">
+                    <div class="empty-block" *ngFor="let cube of row;let y=index" id="{{x+'_'+y}}" [ngClass]="{'water': cube==-1?true:false,'blocked': cube==1?true:false }" (dragenter)="dragEnter($event)" (drop)="droppedBlock($event)" >
+                        <!-- {{cube}} -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-component box-picker"> 
+    
+            <div class="box-picker-container"> 
+            <div class="filled-block" *ngFor="let block of blocks;let i=index" draggable="true" (dragstart)="dragStart($event)" id="{{'drag_'+i}}" (dragend)="dragEnd($event)">
+                <!-- {{block}} -->
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button mat-raised-button mat-button color="primary" (click)="goBack()">Back</button>
+        <button mat-raised-button mat-button color="primary" disabled="{{disableSimulateButton}}" (click)="startSimulation()">Start simulation</button>
+        <button mat-raised-button mat-button color="primary" *ngIf="showResetButton" (click)="reset()">Reset</button>
+    </div>
+</div>

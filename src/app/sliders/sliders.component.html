@@ -1,0 +1,60 @@
+<div>
+  <mat-expansion-panel [expanded]="true" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Grid creation
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="slider-input-container">
+        <div class="slider-input rows-slider"> 
+            Number of rows
+            <mat-slider
+                thumbLabel="true"
+                value="noOfRows"
+                step="1"
+                min="1"
+                max="10"
+                aria-label="units" (change)="rowsChanged($event)">
+            </mat-slider>
+            <div class="label-container">
+                <div class="label min"> 1 </div>
+                <div class="value max"> 10 </div>
+            </div>
+        </div>
+
+        <div class="slider-input rows-slider"> 
+            Number of columns
+            <mat-slider
+                thumbLabel="true"
+                value="noOfColumns"
+                step="1"
+                min="1"
+                max="10"
+                aria-label="units" (change)="columnsChanged($event)">
+            </mat-slider>
+            <div class="label-container">
+                <div class="label min"> 1 </div>
+                <div class="value max"> 10 </div>
+            </div>
+        </div>
+
+        <div class="slider-input rows-slider"> 
+            Number of obstructions
+            <mat-slider
+                thumbLabel="true"
+                value="noOfObstructions"
+                step="1"
+                min="1"
+                max="10"
+                aria-label="units" (change)="obstructionsChanged($event)">
+            </mat-slider>
+            <div class="label-container">
+                <div class="label min"> 1 </div>
+                <div class="value max"> 10 </div>
+            </div>
+        </div>
+
+    </div>
+    <button mat-raised-button mat-button color="primary" (click)="navigateToGrid()">Next</button>
+  </mat-expansion-panel>
+</div>

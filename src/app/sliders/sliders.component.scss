@@ -1,0 +1,23 @@
+.slider-input-container{
+    margin: 25px 0px;
+
+    .slider-input{
+        width: 100%;
+        
+        mat-slider{
+            width:100%;
+        }
+    
+        .label-container{
+            display:flex;
+    
+            .label{
+                flex-grow: 1;
+            }
+    
+            .value{
+                max-width:10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+.simulation{
+    max-width:850px;
+    margin: 0 auto;
+    padding: 30px 50px;
+
+
+    .simulator-description, .button-container button{
+        padding: 0px 30px;
+    }
+
+    .button-container button{
+        margin-left: 30px;
+    }
+    .grid-container{
+        
+        display:flex;
+    
+        .grid-component{
+            margin: 30px;
+            flex-grow: 1;
+    
+            .box-picker-container{
+                max-width: 150px;
+                display:flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                flex-flow: row wrap;
+                align-content: flex-start;
+                
+    
+            }
+            .filled-block{
+                height:50px;
+                width:50px;
+                background: #10203a;
+                color:#000814;
+                cursor:pointer;
+                border: 1px solid #000814;
+                margin:10px;
+            }
+        }
+    
+        .row{
+            display:flex;
+    
+            .empty-block{
+                height:50px;
+                width: 50px;
+                background: #d5d5d5;
+                color:#000814;
+                border: 1px solid #000814;
+                transition:0.2s all ease-in-out;
+            }
+            .water{
+                background:#32bfcd;
+                border: 1px solid #32bfcd;
+            }
+
+            .blocked{
+                background:#000814;
+            }
+        }
+    
+        .water-inlet{
+            margin: 0px 0px;
+            
+    
+            .water-inlet-block{
+                cursor:pointer;
+                background: #efaefa;
+                opacity:0.7;
+            }
+            .water{
+                background:#32bfcd;
+                opacity:1;
+            }
+        }
+
+    
+    }
+}
