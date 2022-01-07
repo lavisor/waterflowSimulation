@@ -10,9 +10,9 @@ import { CommonService } from '../common.service';
 export class SlidersComponent implements OnInit {
 
   panelOpenState: boolean = false;
-  noOfRows: number = 0;
-  noOfColumns: number = 0;
-  noOfObstructions: number = 0;
+  noOfRows: number = 1;
+  noOfColumns: number = 1;
+  noOfObstructions: number = 1;
 
   constructor(private router:Router, private commonService: CommonService) { }
 
