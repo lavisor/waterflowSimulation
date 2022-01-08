@@ -28,6 +28,7 @@ export class SimulatorBoardComponent implements OnInit {
   grid: any = [];
   blocks: any = [];
   inlets: any = [];
+  outlets: any = [];
 
   constructor(private router:Router, private commonService: CommonService) { 
 
@@ -46,6 +47,7 @@ export class SimulatorBoardComponent implements OnInit {
   
       this.blocks = Array(this.numberOfObstruction).fill(0);
       this.inlets = Array(this.numberOfCols).fill(0);
+      this.outlets = Array(this.numberOfCols).fill(0);
     });
   }
   ngOnInit(): void {
@@ -116,7 +118,15 @@ export class SimulatorBoardComponent implements OnInit {
     let floor = 0;
     let incrementEveryHalfSecond = setInterval(() =>{
       this.fillRows(this.grid, waterSimulatedResult, floor);
-      if(++floor == waterSimulatedResult.length) clearInterval(incrementEveryHalfSecond);
+      if(++floor == waterSimulatedResult.length){
+        for(let y=0; y<this.grid[floor-1].length;y++){
+          console.log(this.grid[floor-1]);
+          if(this.grid[floor-1][y] == -1){
+            this.outlets[y] = -1;
+          }
+        }
+        clearInterval(incrementEveryHalfSecond);
+      } 
     }, 200);
   }
 
@@ -142,6 +152,7 @@ export class SimulatorBoardComponent implements OnInit {
     this.grid = [];
     this.blocks = [];
     this.inlets = [];
+    this.outlets = [];
     this.inletChoosen = -1;
     this.showResetButton = false;
     for(let x=0; x<this.numberOfRows;x++){
@@ -152,6 +163,7 @@ export class SimulatorBoardComponent implements OnInit {
     this.disableSimulateButton = true;
     this.blocks = Array(this.numberOfObstruction).fill(0);
     this.inlets = Array(this.numberOfCols).fill(0);
+    this.outlets =  Array(this.numberOfCols).fill(0);
   }
 
   simulateWaterFlow(A: any, B:number){

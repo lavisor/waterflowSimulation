@@ -13,6 +13,11 @@
                         <!-- {{cube}} -->
                     </div>
                 </div>
+                <div class="row water-outlet">
+                    <div class="outlet-block water-inlet-block" *ngFor="let cube of outlets;let y=index" id="{{'outlet_'+y}}" [ngClass]="{'water': cube==-1?true:false }">
+                        <!-- {{cube}} -->
+                    </div>
+                </div>
             </div>
         </div>
         <div class="grid-component box-picker"> 
